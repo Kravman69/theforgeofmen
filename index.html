@@ -20,22 +20,42 @@
 </style>
 </helmet>
 
-<div style="background:#0b0a08; color:oklch(0.96 0.01 90); font-family:'Inter',sans-serif; min-height:100vh; overflow-x:hidden;">
+<div style="background:#0b0a08; color:oklch(0.96 0.01 90); font-family:'Inter',sans-serif; min-height:100vh;">
 
   <nav style="position:sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; background:rgba(11,10,8,0.85); backdrop-filter:blur(8px); border-bottom:1px solid rgba(212,175,106,0.15);">
     <div style="display:flex; align-items:center; gap:12px;">
       <img src="forge-logo.jpg" alt="Forge of Men crest" style="height:38px; width:38px; object-fit:cover; object-position:top; border-radius:2px;" />
       <span style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; font-size:16px; text-transform:uppercase;">The Forge of Men</span>
     </div>
-    <div style="display:flex; align-items:center; gap:28px;">
-      <a href="#events" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Events</a>
-      <a href="#blog" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Blog</a>
-      <a href="#reading" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Library</a>
-      <a href="about.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">About Us</a>
-      <a href="faq.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">FAQ</a>
-      <a href="#store" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Store</a>
-      <a href="{{ ctaHref }}" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid {{ accentGold }}; padding:10px 20px; color:{{ accentGold }};">Join Us</a>
-    </div>
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex; align-items:center; gap:28px;">
+        <a href="#events" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Events</a>
+        <a href="#blog" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Blog</a>
+        <a href="#reading" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Library</a>
+        <a href="about.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">About Us</a>
+        <a href="faq.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">FAQ</a>
+        <a href="#store" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Store</a>
+        <a href="{{ ctaHref }}" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid {{ accentGold }}; padding:10px 20px; color:{{ accentGold }};">Join Us</a>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggleMenu }}" aria-label="Menu" style="background:none; border:none; cursor:pointer; display:flex; flex-direction:column; gap:5px; padding:10px;">
+        <span style="display:block; width:24px; height:2px; background:{{ accentGold }};"></span>
+        <span style="display:block; width:24px; height:2px; background:{{ accentGold }};"></span>
+        <span style="display:block; width:24px; height:2px; background:{{ accentGold }};"></span>
+      </button>
+    </sc-if>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute; top:100%; left:0; right:0; background:rgba(11,10,8,0.97); border-bottom:1px solid rgba(212,175,106,0.25); display:flex; flex-direction:column; padding:16px 28px 24px; gap:18px;">
+        <a href="#events" onClick="{{ closeMenu }}" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Events</a>
+        <a href="#blog" onClick="{{ closeMenu }}" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Blog</a>
+        <a href="#reading" onClick="{{ closeMenu }}" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Library</a>
+        <a href="about.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">About Us</a>
+        <a href="faq.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">FAQ</a>
+        <a href="#store" onClick="{{ closeMenu }}" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Store</a>
+        <a href="{{ ctaHref }}" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.1em; text-transform:uppercase; color:{{ accentGold }};">Join Us</a>
+      </div>
+    </sc-if>
   </nav>
 
   <section style="position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; padding:64px 24px 96px; overflow:hidden;">
@@ -203,11 +223,23 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;accentGold&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C9A227&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#D4AF6A&quot;,&quot;#C9A227&quot;,&quot;#E8C878&quot;]},&quot;ctaHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://theforgeofmen.org&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showEmberGlow&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1200, menuOpen: false };
+  componentDidMount() {
+    this._onR = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('resize', this._onR);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this._onR); }
   renderVals() {
+    const isDesktop = this.state.w >= 900;
     return {
       accentGold: this.props.accentGold ?? '#D4AF6A',
       ctaHref: this.props.ctaHref ?? 'https://theforgeofmen.org',
       showEmberGlow: this.props.showEmberGlow ?? true,
+      isDesktop,
+      isMobile: !isDesktop,
+      menuOpen: !isDesktop && this.state.menuOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
     };
   }
 }

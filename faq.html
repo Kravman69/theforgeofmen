@@ -18,14 +18,15 @@
 </style>
 </helmet>
 
-<div style="background:#0b0a08; color:oklch(0.96 0.01 90); font-family:'Inter',sans-serif; min-height:100vh; overflow-x:hidden;">
+<div style="background:#0b0a08; color:oklch(0.96 0.01 90); font-family:'Inter',sans-serif; min-height:100vh;">
 
   <nav style="position:sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; background:rgba(11,10,8,0.85); backdrop-filter:blur(8px); border-bottom:1px solid rgba(212,175,106,0.15);">
     <a href="index.html" style="display:flex; align-items:center; gap:12px; color:oklch(0.96 0.01 90);">
       <img src="forge-logo.jpg" alt="Forge of Men crest" style="height:38px; width:38px; object-fit:cover; object-position:top; border-radius:2px;" />
       <span style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; font-size:16px; text-transform:uppercase;">The Forge of Men</span>
     </a>
-    <div style="display:flex; align-items:center; gap:28px;">
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex; align-items:center; gap:28px;">
       <a href="index.html#events" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Events</a>
       <a href="#blog" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Blog</a>
       <a href="#reading" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Library</a>
@@ -34,6 +35,25 @@
       <a href="#store" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Store</a>
       <a href="{{ ctaHref }}" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid {{ accentGold }}; padding:10px 20px; color:{{ accentGold }};">Join Us</a>
     </div>
+    </sc-if>
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggleMenu }}" aria-label="Menu" style="background:none; border:none; cursor:pointer; display:flex; flex-direction:column; gap:5px; padding:10px;">
+        <span style="display:block; width:24px; height:2px; background:{{ accentGold }};"></span>
+        <span style="display:block; width:24px; height:2px; background:{{ accentGold }};"></span>
+        <span style="display:block; width:24px; height:2px; background:{{ accentGold }};"></span>
+      </button>
+    </sc-if>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute; top:100%; left:0; right:0; background:rgba(11,10,8,0.97); border-bottom:1px solid rgba(212,175,106,0.25); display:flex; flex-direction:column; align-items:flex-start; padding:16px 28px 24px; gap:18px;">
+      <a href="index.html#events" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Events</a>
+      <a href="#blog" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Blog</a>
+      <a href="#reading" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Library</a>
+      <a href="about.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">About Us</a>
+      <a href="faq.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:{{ accentGold }};">FAQ</a>
+      <a href="#store" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Store</a>
+      <a href="{{ ctaHref }}" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid {{ accentGold }}; padding:10px 20px; color:{{ accentGold }};">Join Us</a>
+    </div>
+    </sc-if>
   </nav>
 
   <section style="text-align:center; padding:90px 24px 60px;">
@@ -105,7 +125,12 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;accentGold&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C9A227&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#D4AF6A&quot;,&quot;#C9A227&quot;,&quot;#E8C878&quot;]},&quot;ctaHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://theforgeofmen.org&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
-  state = { openIdx: 0 };
+  state = { openIdx: 0, w: typeof window !== 'undefined' ? window.innerWidth : 1200, menuOpen: false };
+  componentDidMount() {
+    this._onR = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('resize', this._onR);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this._onR); }
   renderVals() {
     const data = [
       { q: 'Who can join The Forge of Men?', a: 'Any man over 21 seeking real brotherhood, growth, and purpose. You do not need to have it together, be a Bible scholar, or belong to any denomination. Show up willing to be honest and do the work — you belong here.' },
@@ -116,7 +141,13 @@ class Component extends DCLogic {
       { q: "I'm going through divorce or loss. Is this for me?", a: 'Especially for you. The Forge exists to help men rediscover who they are and move forward with purpose after loss, divorce, or hardship. You will not walk through it alone.' },
       { q: 'Is what I share kept private?', a: 'Yes. What is shared in the group stays in the group — every man commits to confidentiality. Trust is the foundation of the brotherhood.' },
     ];
+    const isDesktop = this.state.w >= 900;
     return {
+      isDesktop,
+      isMobile: !isDesktop,
+      menuOpen: !isDesktop && this.state.menuOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
       faqs: data.map((f, i) => ({
         ...f,
         open: this.state.openIdx === i,
