@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  a { color: {{ accentGold }}; text-decoration: none; }
+  a:hover { color: #fff; }
+</style>
+</helmet>
+
+<div style="background:#0b0a08; color:oklch(0.96 0.01 90); font-family:'Inter',sans-serif; min-height:100vh; overflow-x:hidden;">
+
+  <nav style="position:sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; background:rgba(11,10,8,0.85); backdrop-filter:blur(8px); border-bottom:1px solid rgba(212,175,106,0.15);">
+    <a href="index.html" style="display:flex; align-items:center; gap:12px; color:oklch(0.96 0.01 90);">
+      <img src="assets/forge-logo.jpg" alt="Forge of Men crest" style="height:38px; width:38px; object-fit:cover; object-position:top; border-radius:2px;" />
+      <span style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; font-size:16px; text-transform:uppercase;">The Forge of Men</span>
+    </a>
+    <div style="display:flex; align-items:center; gap:28px;">
+      <a href="index.html#events" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Events</a>
+      <a href="#blog" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Blog</a>
+      <a href="#reading" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Library</a>
+      <a href="about.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:{{ accentGold }};">About Us</a>
+      <a href="faq.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">FAQ</a>
+      <a href="#store" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Store</a>
+      <a href="{{ ctaHref }}" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid {{ accentGold }}; padding:10px 20px; color:{{ accentGold }};">Join Us</a>
+    </div>
+  </nav>
+
+  <section style="text-align:center; padding:90px 24px 70px;">
+    <p style="font-family:'Oswald',sans-serif; color:{{ accentGold }}; letter-spacing:0.3em; font-size:13px; text-transform:uppercase; margin:0 0 20px;">Our Story</p>
+    <h1 style="font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(32px, 4.5vw, 52px); text-transform:uppercase; letter-spacing:0.03em; margin:0 0 20px; line-height:1.1;">Why the Forge Exists</h1>
+    <p style="max-width:640px; margin:0 auto; color:oklch(0.72 0.02 90); font-size:17px; line-height:1.7;">Every man gets put through the fire — loss, divorce, hardship, doubt. The Forge of Men exists so no man walks through it alone.</p>
+  </section>
+
+  <section style="padding:80px 24px; background:linear-gradient(rgba(11,10,8,0.88), rgba(11,10,8,0.88)), url('assets/smelting-metal.webp') center/cover; background-attachment:fixed;">
+    <div style="max-width:680px; margin:0 auto; font-size:17px; line-height:1.8; color:oklch(0.88 0.01 90);">
+      <p style="margin:0 0 24px;">The Forge of Men began with a simple observation: too many men are carrying the heaviest seasons of their lives in silence. Careers end, marriages end, people we love are lost — and most men have nowhere to take it.</p>
+      <p style="margin:0 0 24px;">A forge doesn't destroy metal. It transforms it. Heat and pressure, applied with purpose, turn raw iron into something strong and useful. We believe the same is true of men — and that the shaping happens in brotherhood, not isolation.</p>
+      <p style="margin:0;">We are a non-denominational brotherhood for men over 21, with Christ at the core and room for every man willing to do the work. Real conversation. Real accountability. Real connection.</p>
+    </div>
+    <p style="max-width:600px; margin:56px auto 0; text-align:center; font-family:'Oswald',sans-serif; font-weight:500; font-size:clamp(20px, 2.4vw, 26px); line-height:1.5; color:{{ accentGold }}; font-style:italic;">"I never pray for an easy life, only that God grants me the strength to overcome."</p>
+  </section>
+
+  <section style="padding:100px 24px; max-width:1000px; margin:0 auto;">
+    <p style="font-family:'Oswald',sans-serif; color:{{ accentGold }}; letter-spacing:0.3em; font-size:13px; text-transform:uppercase; text-align:center; margin:0 0 16px;">Our Core Beliefs</p>
+    <h2 style="font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; font-size:clamp(26px, 3.4vw, 36px); text-align:center; margin:0 0 64px;">What We Believe</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:40px;">
+      <div style="border-top:2px solid {{ accentGold }}; padding-top:24px;">
+        <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; font-size:18px; margin:0 0 12px;">Christ at the Core</h3>
+        <p style="color:oklch(0.72 0.02 90); font-size:15px; line-height:1.7; margin:0;">We are anchored in Christ while honoring universal truths across all faiths. No denomination required — only a willing heart.</p>
+      </div>
+      <div style="border-top:2px solid {{ accentGold }}; padding-top:24px;">
+        <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; font-size:18px; margin:0 0 12px;">Men Are Rebuilt in Brotherhood</h3>
+        <p style="color:oklch(0.72 0.02 90); font-size:15px; line-height:1.7; margin:0;">Isolation breaks men down; brotherhood builds them back. Real conversation and human connection are not optional — they are the forge itself.</p>
+      </div>
+      <div style="border-top:2px solid {{ accentGold }}; padding-top:24px;">
+        <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; font-size:18px; margin:0 0 12px;">Mental Health Is Strength</h3>
+        <p style="color:oklch(0.72 0.02 90); font-size:15px; line-height:1.7; margin:0;">Asking for help is fortitude, not weakness. We equip men with mental health education and real tools for success.</p>
+      </div>
+      <div style="border-top:2px solid {{ accentGold }}; padding-top:24px;">
+        <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; font-size:18px; margin:0 0 12px;">The Body Is Part of the Calling</h3>
+        <p style="color:oklch(0.72 0.02 90); font-size:15px; line-height:1.7; margin:0;">Discipline of the body trains discipline of the spirit. We optimize health and wellness through science and cutting-edge research.</p>
+      </div>
+      <div style="border-top:2px solid {{ accentGold }}; padding-top:24px;">
+        <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; font-size:18px; margin:0 0 12px;">Hardship Is a Forge, Not an Ending</h3>
+        <p style="color:oklch(0.72 0.02 90); font-size:15px; line-height:1.7; margin:0;">Loss, divorce, and failure are not the end of a man's story. With purpose and brotherhood, they become the place he is remade.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:100px 24px; background:#141210; text-align:center;">
+    <h2 style="font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.03em; font-size:clamp(26px, 3.6vw, 40px); margin:0 0 24px;">Walk Into the Fire With Us</h2>
+    <p style="color:oklch(0.72 0.02 90); font-size:16px; margin:0 0 36px;">Read the commitment every Forge man makes.</p>
+    <a href="commitment.html" style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-size:14px; background:{{ accentGold }}; color:#12100c; padding:16px 38px; display:inline-block;">The Forge Commitment</a>
+  </section>
+
+  <footer style="padding:64px 24px 40px; border-top:1px solid rgba(212,175,106,0.15);">
+    <div style="max-width:1000px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:40px;">
+      <div>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+          <img src="assets/forge-logo.jpg" alt="" style="height:30px; width:30px; object-fit:cover; object-position:top; border-radius:2px;" />
+          <span style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; font-size:14px; text-transform:uppercase;">The Forge of Men</span>
+        </div>
+        <p style="font-size:13px; color:oklch(0.6 0.02 90); line-height:1.7; margin:0; font-style:italic;">Where men are forged in faith, fortitude, and strength.</p>
+      </div>
+      <div>
+        <p style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:{{ accentGold }}; margin:0 0 14px;">Quick Links</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="index.html" style="font-size:14px; color:oklch(0.78 0.01 90);">Home</a>
+          <a href="about.html" style="font-size:14px; color:oklch(0.78 0.01 90);">About Us</a>
+          <a href="commitment.html" style="font-size:14px; color:oklch(0.78 0.01 90);">The Commitment</a>
+          <a href="faq.html" style="font-size:14px; color:oklch(0.78 0.01 90);">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:{{ accentGold }}; margin:0 0 14px;">Community</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="index.html#events" style="font-size:14px; color:oklch(0.78 0.01 90);">Events</a>
+          <a href="#blog" style="font-size:14px; color:oklch(0.78 0.01 90);">Blog</a>
+          <a href="#reading" style="font-size:14px; color:oklch(0.78 0.01 90);">Library</a>
+          <a href="#store" style="font-size:14px; color:oklch(0.78 0.01 90);">Store</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:{{ accentGold }}; margin:0 0 14px;">Contact</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="{{ ctaHref }}" style="font-size:14px; color:oklch(0.78 0.01 90);">theforgeofmen.org</a>
+          <a href="mailto:info@theforgeofmen.org" style="font-size:14px; color:oklch(0.78 0.01 90);">info@theforgeofmen.org</a>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center; font-size:12px; color:oklch(0.5 0.02 90); margin:48px 0 0; letter-spacing:0.05em;">© 2026 The Forge of Men. All rights reserved.</p>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accentGold&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C9A227&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#D4AF6A&quot;,&quot;#C9A227&quot;,&quot;#E8C878&quot;]},&quot;ctaHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://theforgeofmen.org&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      accentGold: this.props.accentGold ?? '#C9A227',
+      ctaHref: this.props.ctaHref ?? 'https://theforgeofmen.org',
+    };
+  }
+}
+</script>
+</body>
+</html>

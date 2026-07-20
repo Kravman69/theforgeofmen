@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  a { color: {{ accentGold }}; text-decoration: none; }
+  a:hover { color: #fff; }
+</style>
+</helmet>
+
+<div style="background:#0b0a08; color:oklch(0.96 0.01 90); font-family:'Inter',sans-serif; min-height:100vh; overflow-x:hidden;">
+
+  <nav style="position:sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; background:rgba(11,10,8,0.85); backdrop-filter:blur(8px); border-bottom:1px solid rgba(212,175,106,0.15);">
+    <a href="index.html" style="display:flex; align-items:center; gap:12px; color:oklch(0.96 0.01 90);">
+      <img src="assets/forge-logo.jpg" alt="Forge of Men crest" style="height:38px; width:38px; object-fit:cover; object-position:top; border-radius:2px;" />
+      <span style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; font-size:16px; text-transform:uppercase;">The Forge of Men</span>
+    </a>
+    <div style="display:flex; align-items:center; gap:28px;">
+      <a href="index.html#events" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Events</a>
+      <a href="#blog" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Blog</a>
+      <a href="#reading" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Library</a>
+      <a href="about.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">About Us</a>
+      <a href="faq.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:{{ accentGold }};">FAQ</a>
+      <a href="#store" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Store</a>
+      <a href="{{ ctaHref }}" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid {{ accentGold }}; padding:10px 20px; color:{{ accentGold }};">Join Us</a>
+    </div>
+  </nav>
+
+  <section style="text-align:center; padding:90px 24px 60px;">
+    <p style="font-family:'Oswald',sans-serif; color:{{ accentGold }}; letter-spacing:0.3em; font-size:13px; text-transform:uppercase; margin:0 0 20px;">Questions & Answers</p>
+    <h1 style="font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(32px, 4.5vw, 52px); text-transform:uppercase; letter-spacing:0.03em; margin:0 0 20px; line-height:1.1;">Frequently Asked Questions</h1>
+    <p style="max-width:560px; margin:0 auto; color:oklch(0.72 0.02 90); font-size:17px; line-height:1.7;">Everything you need to know before you show up.</p>
+  </section>
+
+  <section style="padding:40px 24px 110px; max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:20px;">
+    <sc-for list="{{ faqs }}" as="faq" hint-placeholder-count="6">
+      <div style="border:1px solid rgba(212,175,106,0.2); background:#141210;">
+        <button onClick="{{ faq.toggle }}" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 26px; background:none; border:none; cursor:pointer; text-align:left; color:oklch(0.96 0.01 90);">
+          <span style="font-family:'Oswald',sans-serif; font-weight:600; font-size:17px; letter-spacing:0.03em; text-transform:uppercase;">{{ faq.q }}</span>
+          <span style="font-family:'Oswald',sans-serif; font-size:22px; color:{{ accentGold }}; line-height:1;">{{ faq.icon }}</span>
+        </button>
+        <sc-if value="{{ faq.open }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:0; padding:0 26px 24px; color:oklch(0.75 0.01 90); font-size:15px; line-height:1.8;">{{ faq.a }}</p>
+        </sc-if>
+      </div>
+    </sc-for>
+  </section>
+
+  <section style="padding:90px 24px; background:linear-gradient(rgba(11,10,8,0.88), rgba(11,10,8,0.88)), url('assets/smelting-metal.webp') center/cover; background-attachment:fixed; text-align:center;">
+    <h2 style="font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.03em; font-size:clamp(24px, 3.2vw, 36px); margin:0 0 20px;">Still Have Questions?</h2>
+    <p style="color:oklch(0.72 0.02 90); font-size:16px; margin:0 0 32px;">Reach out — we'll get back to you quickly.</p>
+    <a href="mailto:info@theforgeofmen.org" style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-size:14px; background:{{ accentGold }}; color:#12100c; padding:16px 38px; display:inline-block;">Contact Us</a>
+  </section>
+
+  <footer style="padding:64px 24px 40px; border-top:1px solid rgba(212,175,106,0.15);">
+    <div style="max-width:1000px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:40px;">
+      <div>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+          <img src="assets/forge-logo.jpg" alt="" style="height:30px; width:30px; object-fit:cover; object-position:top; border-radius:2px;" />
+          <span style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; font-size:14px; text-transform:uppercase;">The Forge of Men</span>
+        </div>
+        <p style="font-size:13px; color:oklch(0.6 0.02 90); line-height:1.7; margin:0; font-style:italic;">Where men are forged in faith, fortitude, and strength.</p>
+      </div>
+      <div>
+        <p style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:{{ accentGold }}; margin:0 0 14px;">Quick Links</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="index.html" style="font-size:14px; color:oklch(0.78 0.01 90);">Home</a>
+          <a href="about.html" style="font-size:14px; color:oklch(0.78 0.01 90);">About Us</a>
+          <a href="commitment.html" style="font-size:14px; color:oklch(0.78 0.01 90);">The Commitment</a>
+          <a href="faq.html" style="font-size:14px; color:oklch(0.78 0.01 90);">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:{{ accentGold }}; margin:0 0 14px;">Community</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="index.html#events" style="font-size:14px; color:oklch(0.78 0.01 90);">Events</a>
+          <a href="#blog" style="font-size:14px; color:oklch(0.78 0.01 90);">Blog</a>
+          <a href="#reading" style="font-size:14px; color:oklch(0.78 0.01 90);">Library</a>
+          <a href="#store" style="font-size:14px; color:oklch(0.78 0.01 90);">Store</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:{{ accentGold }}; margin:0 0 14px;">Contact</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="{{ ctaHref }}" style="font-size:14px; color:oklch(0.78 0.01 90);">theforgeofmen.org</a>
+          <a href="mailto:info@theforgeofmen.org" style="font-size:14px; color:oklch(0.78 0.01 90);">info@theforgeofmen.org</a>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center; font-size:12px; color:oklch(0.5 0.02 90); margin:48px 0 0; letter-spacing:0.05em;">© 2026 The Forge of Men. All rights reserved.</p>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accentGold&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C9A227&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#D4AF6A&quot;,&quot;#C9A227&quot;,&quot;#E8C878&quot;]},&quot;ctaHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://theforgeofmen.org&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { openIdx: 0 };
+  renderVals() {
+    const data = [
+      { q: 'Who can join The Forge of Men?', a: 'Any man over 21 seeking real brotherhood, growth, and purpose. You do not need to have it together, be a Bible scholar, or belong to any denomination. Show up willing to be honest and do the work — you belong here.' },
+      { q: 'Do I have to be Christian?', a: 'No. We keep Christ at the core while honoring universal truths across all faiths. We are non-denominational, and men of every background are welcome — skeptics included.' },
+      { q: 'Is there a cost to join?', a: 'Our gatherings are open to every man regardless of finances. As a growing organization we may offer optional memberships to support the mission — but money will never be a barrier to brotherhood.' },
+      { q: 'What happens at a gathering?', a: 'Forge Nights are built around real conversation: a topic or scripture, honest discussion, accountability, and prayer. No performances, no masks. Forge Weekends go deeper with extended time for connection and renewal.' },
+      { q: "What's the time commitment?", a: 'Consistency matters more than hours. Plan on a weekly Forge Night (about 90 minutes) and staying connected with your brothers between meetings. Quarterly Forge Weekends are optional but recommended.' },
+      { q: "I'm going through divorce or loss. Is this for me?", a: 'Especially for you. The Forge exists to help men rediscover who they are and move forward with purpose after loss, divorce, or hardship. You will not walk through it alone.' },
+      { q: 'Is what I share kept private?', a: 'Yes. What is shared in the group stays in the group — every man commits to confidentiality. Trust is the foundation of the brotherhood.' },
+    ];
+    return {
+      faqs: data.map((f, i) => ({
+        ...f,
+        open: this.state.openIdx === i,
+        icon: this.state.openIdx === i ? '–' : '+',
+        toggle: () => this.setState({ openIdx: this.state.openIdx === i ? -1 : i }),
+      })),
+      accentGold: this.props.accentGold ?? '#C9A227',
+      ctaHref: this.props.ctaHref ?? 'https://theforgeofmen.org',
+    };
+  }
+}
+</script>
+</body>
+</html>
