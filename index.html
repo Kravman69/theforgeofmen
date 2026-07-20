@@ -169,8 +169,9 @@
         <span onMouseEnter="{{ pl.enter }}" onMouseLeave="{{ pl.leave }}" onClick="{{ pl.enter }}" style="font-family:'Oswald',sans-serif; font-size:14px; letter-spacing:0.06em; text-transform:uppercase; border:1px solid {{ pl.border }}; color:{{ pl.color }}; padding:10px 18px; cursor:default; transition:all 0.2s;">{{ pl.title }}</span>
       </sc-for>
     </div>
-    <div style="min-height:64px; max-width:620px; margin:0 auto 40px; display:flex; align-items:center; justify-content:center;">
+    <div style="min-height:110px; max-width:620px; margin:0 auto 40px; display:flex; flex-direction:column; gap:12px; align-items:center; justify-content:center;">
       <p style="font-size:15px; line-height:1.7; color:oklch(0.78 0.02 90); font-style:italic; margin:0;">{{ activeDesc }}</p>
+      <p style="font-size:13px; line-height:1.7; color:{{ accentGold }}; margin:0;">{{ activeVerse }}</p>
     </div>
     <a href="commitment.html" style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-size:14px; border:1px solid {{ accentGold }}; color:{{ accentGold }}; padding:15px 34px; display:inline-block;">Read the Full Commitment</a>
   </section>
@@ -213,7 +214,7 @@
         <p style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:{{ accentGold }}; margin:0 0 14px;">Contact</p>
         <div style="display:flex; flex-direction:column; gap:10px;">
           <a href="{{ ctaHref }}" style="font-size:14px; color:oklch(0.78 0.01 90);">theforgeofmen.org</a>
-          <a href="mailto:info@theforgeofmen.org" style="font-size:14px; color:oklch(0.78 0.01 90);">info@theforgeofmen.org</a>
+          <a href="/cdn-cgi/l/email-protection#f990979f96b98d919c9f968b9e9c969f949c97d7968b9e" style="font-size:14px; color:oklch(0.78 0.01 90);"><span class="__cf_email__" data-cfemail="8ce5e2eae3ccf8e4e9eae3feebe9e3eae1e9e2a2e3feeb">[email&#160;protected]</span></a>
         </div>
       </div>
     </div>
@@ -223,7 +224,7 @@
 </div>
 
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;accentGold&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C9A227&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#D4AF6A&quot;,&quot;#C9A227&quot;,&quot;#E8C878&quot;]},&quot;ctaHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://theforgeofmen.org&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showEmberGlow&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script data-props="{&quot;accentGold&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C9A227&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#D4AF6A&quot;,&quot;#C9A227&quot;,&quot;#E8C878&quot;]},&quot;ctaHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://theforgeofmen.org&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showEmberGlow&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
   state = { w: typeof window !== 'undefined' ? window.innerWidth : 1200, menuOpen: false };
   componentDidMount() {
@@ -235,12 +236,12 @@ class Component extends DCLogic {
     const isDesktop = this.state.w >= 900;
     const gold = this.props.accentGold ?? '#D4AF6A';
     const data = [
-      { title: 'Pursue spiritual connection', desc: 'Keeping Christ at the core through prayer, scripture, and honest reflection — not out of duty, but desire.' },
-      { title: 'Live without masks', desc: 'Speaking honestly about my struggles, my failures, and my hopes — letting my brothers know the real me.' },
-      { title: 'Strengthen my mind', desc: 'Seeking growth, education, and help when I need it — because fortitude means facing what most men avoid.' },
-      { title: 'Train my body', desc: 'Treating physical discipline as spiritual discipline — stewarding my health through science and faith alike.' },
-      { title: 'Stand with my brothers', desc: 'Through loss, divorce, and hardship — showing up when it matters most, carrying weight that is too heavy for one man.' },
-      { title: 'Move forward with purpose', desc: 'Refusing to be defined by what I\'ve lost — pressing on toward who I am called to become.' },
+      { title: 'I will pursue spiritual connection daily', desc: 'Keeping Christ at the core through prayer, scripture, and honest reflection — not out of duty, but desire.', verse: '"You will seek me and find me when you seek me with all your heart." — Jeremiah 29:13' },
+      { title: 'I will live without masks', desc: 'Speaking honestly about my struggles, my failures, and my hopes — letting my brothers know the real me.', verse: '"Confess your sins to each other and pray for each other so that you may be healed." — James 5:16' },
+      { title: 'I will strengthen my mind', desc: 'Seeking growth, education, and help when I need it — because fortitude means facing what most men avoid.', verse: '"Be transformed by the renewing of your mind." — Romans 12:2' },
+      { title: 'I will train my body', desc: 'Treating physical discipline as spiritual discipline — stewarding my health through science and faith alike.', verse: '"Do you not know that your bodies are temples of the Holy Spirit?" — 1 Corinthians 6:19' },
+      { title: 'I will stand with my brothers', desc: 'Through loss, divorce, and hardship — showing up when it matters most, carrying weight that is too heavy for one man.', verse: '"Carry each other\'s burdens, and in this way you will fulfill the law of Christ." — Galatians 6:2' },
+      { title: 'I will move forward with purpose', desc: 'Refusing to be defined by what I\'ve lost — pressing on toward who I am called to become.', verse: '"Forgetting what is behind and straining toward what is ahead, I press on toward the goal." — Philippians 3:13-14' },
     ];
     const hi = this.state.pledgeIdx ?? -1;
     return {
@@ -252,6 +253,7 @@ class Component extends DCLogic {
         leave: () => this.setState({ pledgeIdx: -1 }),
       })),
       activeDesc: hi >= 0 ? data[hi].desc : 'Hover over a commitment to see what it means.',
+      activeVerse: hi >= 0 ? data[hi].verse : '',
       accentGold: this.props.accentGold ?? '#D4AF6A',
       ctaHref: this.props.ctaHref ?? 'https://theforgeofmen.org',
       showEmberGlow: this.props.showEmberGlow ?? true,
