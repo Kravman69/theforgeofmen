@@ -78,7 +78,7 @@ s0.parentNode.insertBefore(s1,s0);
       <h1 style="font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(38px, 5.5vw, 64px); text-transform:uppercase; letter-spacing:0.06em; margin:0 0 10px; line-height:1.1; text-shadow:0 2px 24px rgba(0,0,0,0.9);">The Forge of Men</h1>
       <p style="font-family:'Oswald',sans-serif; font-weight:500; font-size:clamp(16px, 2vw, 22px); text-transform:uppercase; letter-spacing:0.12em; margin:0; color:oklch(0.9 0.01 90); text-shadow:0 2px 16px rgba(0,0,0,0.9);">Where Men Are Forged in Faith, Fortitude, and Strength</p>
     </div>
-    <img src="hero-crest.jpg" alt="Forge of Men crest" style="width:min(480px, 78vw); height:auto; display:block; position:relative; z-index:1; margin:-80px auto -72px; -webkit-mask-image:radial-gradient(ellipse 62% 58% at 50% 50%, black 52%, transparent 82%); mask-image:radial-gradient(ellipse 62% 58% at 50% 50%, black 52%, transparent 82%);" />
+    <img src="hero-crest.jpg" alt="Forge of Men crest" style="width:min(480px, 78vw); height:auto; display:block; position:relative; z-index:1; margin:{{ heroImgMargin }}; -webkit-mask-image:radial-gradient(ellipse 62% 58% at 50% 50%, black 52%, transparent 82%); mask-image:radial-gradient(ellipse 62% 58% at 50% 50%, black 52%, transparent 82%);" />
     <div>
     <sc-if value="{{ showEmberGlow }}" hint-placeholder-val="{{ true }}">
       <div style="position:absolute; bottom:-10%; left:50%; transform:translateX(-50%); width:900px; height:500px; background:radial-gradient(ellipse at center, oklch(0.62 0.17 45 / 0.35), transparent 70%); filter:blur(20px); animation:glowPulse 6s ease-in-out infinite; pointer-events:none;"></div>
@@ -234,7 +234,7 @@ s0.parentNode.insertBefore(s1,s0);
         <p style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:{{ accentGold }}; margin:0 0 14px;">Contact</p>
         <div style="display:flex; flex-direction:column; gap:10px;">
           <a href="{{ ctaHref }}" style="font-size:14px; color:oklch(0.78 0.01 90);">theforgeofmen.org</a>
-          <a href="mailto:info@theforgeofmen.org" style="font-size:14px; color:oklch(0.78 0.01 90);">info@theforgeofmen.org</a>
+          <a href="/cdn-cgi/l/email-protection#036a6d656c43776b66656c7164666c656e666d2d6c7164" style="font-size:14px; color:oklch(0.78 0.01 90);"><span class="__cf_email__" data-cfemail="e1888f878ea1958984878e9386848e878c848fcf8e9386">[email&#160;protected]</span></a>
         </div>
       </div>
     </div>
@@ -244,7 +244,7 @@ s0.parentNode.insertBefore(s1,s0);
 </div>
 
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;accentGold&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C9A227&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#D4AF6A&quot;,&quot;#C9A227&quot;,&quot;#E8C878&quot;]},&quot;ctaHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://theforgeofmen.org&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showEmberGlow&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script data-props="{&quot;accentGold&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C9A227&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#D4AF6A&quot;,&quot;#C9A227&quot;,&quot;#E8C878&quot;]},&quot;ctaHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://theforgeofmen.org&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showEmberGlow&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
   state = { w: typeof window !== 'undefined' ? window.innerWidth : 1200, menuOpen: false };
   componentDidMount() {
@@ -279,6 +279,7 @@ class Component extends DCLogic {
       showEmberGlow: this.props.showEmberGlow ?? true,
       isDesktop,
       isMobile: !isDesktop,
+      heroImgMargin: isDesktop ? '-48px auto -56px' : '4px auto -24px',
       menuOpen: !isDesktop && this.state.menuOpen,
       toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
       closeMenu: () => this.setState({ menuOpen: false }),
