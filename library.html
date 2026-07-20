@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  a { color: {{ accentGold }}; text-decoration: none; }
+  a:hover { color: #fff; }
+</style>
+</helmet>
+
+<div style="background:linear-gradient(rgba(11,10,8,0.82), rgba(11,10,8,0.82)), url('embers-bg.jpg') center/cover fixed #0b0a08; color:oklch(0.96 0.01 90); font-family:'Inter',sans-serif; min-height:100vh;">
+
+  <nav style="position:sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; background:rgba(11,10,8,0.85); backdrop-filter:blur(8px); border-bottom:1px solid rgba(212,175,106,0.15);">
+    <a href="index.html" style="display:flex; align-items:center; gap:12px; color:oklch(0.96 0.01 90);">
+      <img src="forge-logo.jpg" alt="Forge of Men crest" style="height:38px; width:38px; object-fit:cover; object-position:top; border-radius:2px;" />
+      <span style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; font-size:16px; text-transform:uppercase;">The Forge of Men</span>
+    </a>
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex; align-items:center; gap:28px;">
+        <a href="events.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Events</a>
+        <a href="https://theforgeofmen.substack.com/" target="_blank" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Blog</a>
+        <a href="library.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:{{ accentGold }};">Library</a>
+        <a href="about.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">About Us</a>
+        <a href="commitment.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Our Pledge</a>
+        <a href="faq.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">FAQ</a>
+        <a href="store.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Store</a>
+        <a href="join.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid {{ accentGold }}; padding:10px 20px; color:{{ accentGold }};">Join Us</a>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggleMenu }}" aria-label="Menu" style="background:none; border:none; cursor:pointer; display:flex; flex-direction:column; gap:5px; padding:10px;">
+        <span style="display:block; width:24px; height:2px; background:{{ accentGold }};"></span>
+        <span style="display:block; width:24px; height:2px; background:{{ accentGold }};"></span>
+        <span style="display:block; width:24px; height:2px; background:{{ accentGold }};"></span>
+      </button>
+    </sc-if>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute; top:100%; left:0; right:0; background:rgba(11,10,8,0.97); border-bottom:1px solid rgba(212,175,106,0.25); display:flex; flex-direction:column; align-items:flex-start; padding:16px 28px 24px; gap:18px;">
+        <a href="events.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Events</a>
+        <a href="https://theforgeofmen.substack.com/" target="_blank" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Blog</a>
+        <a href="library.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:{{ accentGold }};">Library</a>
+        <a href="about.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">About Us</a>
+        <a href="commitment.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Our Pledge</a>
+        <a href="faq.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">FAQ</a>
+        <a href="store.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Store</a>
+        <a href="join.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.1em; text-transform:uppercase; color:{{ accentGold }};">Join Us</a>
+      </div>
+    </sc-if>
+  </nav>
+
+  <section style="text-align:center; padding:90px 24px 50px;">
+    <p style="font-family:'Oswald',sans-serif; color:{{ accentGold }}; letter-spacing:0.3em; font-size:13px; text-transform:uppercase; margin:0 0 20px;">The Library</p>
+    <h1 style="font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(32px, 4.5vw, 52px); text-transform:uppercase; letter-spacing:0.03em; margin:0 0 20px; line-height:1.1;">Sharpen Your Mind</h1>
+    <p style="max-width:600px; margin:0 auto; color:oklch(0.72 0.02 90); font-size:17px; line-height:1.7;">Books we read, discuss, and live by — chosen for the three pillars. Real techniques, no fluff.</p>
+  </section>
+
+  <section style="padding:30px 24px 110px; max-width:1000px; margin:0 auto; display:flex; flex-direction:column; gap:72px;">
+
+    <div>
+      <h2 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; font-size:22px; color:{{ accentGold }}; margin:0 0 8px; text-align:center;">Spiritual Connection</h2>
+      <p style="text-align:center; color:oklch(0.6 0.02 90); font-size:14px; margin:0 0 36px;">Purpose, calling, and the heart of a man</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;">
+        <div style="border:1px solid rgba(212,175,106,0.25); background:rgba(20,18,16,0.85); padding:28px;">
+          <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.03em; margin:0 0 4px;">The Purpose Driven Life</h3>
+          <p style="font-size:13px; color:{{ accentGold }}; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 14px;">Rick Warren</p>
+          <p style="color:oklch(0.75 0.01 90); font-size:14px; line-height:1.7; margin:0;">A 40-day journey answering the question every man asks: what am I here for?</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;">
+            <a href="https://www.amazon.com/dp/031033750X?tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; background:{{ accentGold }}; color:#12100c; padding:9px 16px;">Buy the Book</a>
+            <a href="https://www.amazon.com/s?k=The+Purpose+Driven+Life+Rick+Warren&i=audible&tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; border:1px solid {{ accentGold }}; color:{{ accentGold }}; padding:9px 16px;">Audiobook</a>
+          </div>
+        </div>
+        <div style="border:1px solid rgba(212,175,106,0.25); background:rgba(20,18,16,0.85); padding:28px;">
+          <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.03em; margin:0 0 4px;">Wild at Heart</h3>
+          <p style="font-size:13px; color:{{ accentGold }}; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 14px;">John Eldredge</p>
+          <p style="color:oklch(0.75 0.01 90); font-size:14px; line-height:1.7; margin:0;">Recovering the passionate, courageous heart God built into every man.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;">
+            <a href="https://www.amazon.com/dp/1400200393?tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; background:{{ accentGold }}; color:#12100c; padding:9px 16px;">Buy the Book</a>
+            <a href="https://www.amazon.com/s?k=Wild+at+Heart+John+Eldredge&i=audible&tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; border:1px solid {{ accentGold }}; color:{{ accentGold }}; padding:9px 16px;">Audiobook</a>
+          </div>
+        </div>
+        <div style="border:1px solid rgba(212,175,106,0.25); background:rgba(20,18,16,0.85); padding:28px;">
+          <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.03em; margin:0 0 4px;">Man's Search for Meaning</h3>
+          <p style="font-size:13px; color:{{ accentGold }}; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 14px;">Viktor E. Frankl</p>
+          <p style="color:oklch(0.75 0.01 90); font-size:14px; line-height:1.7; margin:0;">Proof from the darkest place on earth that meaning — not comfort — is what keeps a man alive.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;">
+            <a href="https://www.amazon.com/dp/0807014273?tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; background:{{ accentGold }}; color:#12100c; padding:9px 16px;">Buy the Book</a>
+            <a href="https://www.amazon.com/s?k=Mans+Search+for+Meaning+Frankl&i=audible&tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; border:1px solid {{ accentGold }}; color:{{ accentGold }}; padding:9px 16px;">Audiobook</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; font-size:22px; color:{{ accentGold }}; margin:0 0 8px; text-align:center;">Mental Fortitude</h2>
+      <p style="text-align:center; color:oklch(0.6 0.02 90); font-size:14px; margin:0 0 36px;">Stoic discipline, resilience, and real tools for the mind</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;">
+        <div style="border:1px solid rgba(212,175,106,0.25); background:rgba(20,18,16,0.85); padding:28px;">
+          <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.03em; margin:0 0 4px;">The Obstacle Is the Way</h3>
+          <p style="font-size:13px; color:{{ accentGold }}; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 14px;">Ryan Holiday</p>
+          <p style="color:oklch(0.75 0.01 90); font-size:14px; line-height:1.7; margin:0;">Stoicism in action: turning trials into fuel. Short chapters, straight to the point.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;">
+            <a href="https://www.amazon.com/dp/1591846358?tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; background:{{ accentGold }}; color:#12100c; padding:9px 16px;">Buy the Book</a>
+            <a href="https://www.amazon.com/s?k=The+Obstacle+Is+the+Way+Ryan+Holiday&i=audible&tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; border:1px solid {{ accentGold }}; color:{{ accentGold }}; padding:9px 16px;">Audiobook</a>
+          </div>
+        </div>
+        <div style="border:1px solid rgba(212,175,106,0.25); background:rgba(20,18,16,0.85); padding:28px;">
+          <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.03em; margin:0 0 4px;">Meditations</h3>
+          <p style="font-size:13px; color:{{ accentGold }}; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 14px;">Marcus Aurelius</p>
+          <p style="color:oklch(0.75 0.01 90); font-size:14px; line-height:1.7; margin:0;">The private journal of a stoic emperor — the original manual on mastering your own mind.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;">
+            <a href="https://www.amazon.com/dp/0812968255?tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; background:{{ accentGold }}; color:#12100c; padding:9px 16px;">Buy the Book</a>
+            <a href="https://www.amazon.com/s?k=Meditations+Marcus+Aurelius+Gregory+Hays&i=audible&tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; border:1px solid {{ accentGold }}; color:{{ accentGold }}; padding:9px 16px;">Audiobook</a>
+          </div>
+        </div>
+        <div style="border:1px solid rgba(212,175,106,0.25); background:rgba(20,18,16,0.85); padding:28px;">
+          <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.03em; margin:0 0 4px;">The Body Keeps the Score</h3>
+          <p style="font-size:13px; color:{{ accentGold }}; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 14px;">Bessel van der Kolk</p>
+          <p style="color:oklch(0.75 0.01 90); font-size:14px; line-height:1.7; margin:0;">How trauma lives in the body — and the science-backed paths to healing it.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;">
+            <a href="https://www.amazon.com/dp/0143127748?tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; background:{{ accentGold }}; color:#12100c; padding:9px 16px;">Buy the Book</a>
+            <a href="https://www.amazon.com/s?k=The+Body+Keeps+the+Score&i=audible&tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; border:1px solid {{ accentGold }}; color:{{ accentGold }}; padding:9px 16px;">Audiobook</a>
+          </div>
+        </div>
+        <div style="border:1px solid rgba(212,175,106,0.25); background:rgba(20,18,16,0.85); padding:28px;">
+          <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.03em; margin:0 0 4px;">Atomic Habits</h3>
+          <p style="font-size:13px; color:{{ accentGold }}; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 14px;">James Clear</p>
+          <p style="color:oklch(0.75 0.01 90); font-size:14px; line-height:1.7; margin:0;">Small, repeatable systems that compound — the mechanics of becoming who you intend to be.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;">
+            <a href="https://www.amazon.com/dp/0735211299?tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; background:{{ accentGold }}; color:#12100c; padding:9px 16px;">Buy the Book</a>
+            <a href="https://www.amazon.com/s?k=Atomic+Habits+James+Clear&i=audible&tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; border:1px solid {{ accentGold }}; color:{{ accentGold }}; padding:9px 16px;">Audiobook</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; font-size:22px; color:{{ accentGold }}; margin:0 0 8px; text-align:center;">Brotherhood & Leadership</h2>
+      <p style="text-align:center; color:oklch(0.6 0.02 90); font-size:14px; margin:0 0 36px;">Connection, influence, and leading well</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;">
+        <div style="border:1px solid rgba(212,175,106,0.25); background:rgba(20,18,16,0.85); padding:28px;">
+          <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.03em; margin:0 0 4px;">How to Win Friends and Influence People</h3>
+          <p style="font-size:13px; color:{{ accentGold }}; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 14px;">Dale Carnegie</p>
+          <p style="color:oklch(0.75 0.01 90); font-size:14px; line-height:1.7; margin:0;">The timeless playbook for genuine connection — with your brothers, your family, and everyone else.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;">
+            <a href="https://www.amazon.com/dp/0671027034?tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; background:{{ accentGold }}; color:#12100c; padding:9px 16px;">Buy the Book</a>
+            <a href="https://www.amazon.com/s?k=How+to+Win+Friends+and+Influence+People&i=audible&tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; border:1px solid {{ accentGold }}; color:{{ accentGold }}; padding:9px 16px;">Audiobook</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align:center; font-size:12px; color:oklch(0.55 0.02 90); margin:0; line-height:1.7;">As an Amazon Associate, The Forge of Men earns from qualifying purchases. Proceeds support our mission.</p>
+  </section>
+
+  <section style="padding:90px 24px; background:linear-gradient(rgba(11,10,8,0.9), rgba(11,10,8,0.9)), url('iron-sharpens-iron.webp') center/cover; background-attachment:fixed; text-align:center;">
+    <h2 style="font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.03em; font-size:clamp(24px, 3.2vw, 36px); margin:0 0 20px;">Read One Together</h2>
+    <p style="color:oklch(0.72 0.02 90); font-size:16px; margin:0 0 32px;">Books hit different when you discuss them with brothers. Join us and dig in.</p>
+    <a href="join.html" style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-size:14px; background:{{ accentGold }}; color:#12100c; padding:16px 38px; display:inline-block;">Join the Brotherhood</a>
+  </section>
+
+  <footer style="padding:64px 24px 40px; border-top:1px solid rgba(212,175,106,0.15);">
+    <div style="max-width:1000px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:40px;">
+      <div>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+          <img src="forge-logo.jpg" alt="" style="height:30px; width:30px; object-fit:cover; object-position:top; border-radius:2px;" />
+          <span style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; font-size:14px; text-transform:uppercase;">The Forge of Men</span>
+        </div>
+        <p style="font-size:13px; color:oklch(0.6 0.02 90); line-height:1.7; margin:0; font-style:italic;">Where men are forged in faith, fortitude, and strength.</p>
+      </div>
+      <div>
+        <p style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:{{ accentGold }}; margin:0 0 14px;">Quick Links</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="index.html" style="font-size:14px; color:oklch(0.78 0.01 90);">Home</a>
+          <a href="about.html" style="font-size:14px; color:oklch(0.78 0.01 90);">About Us</a>
+          <a href="commitment.html" style="font-size:14px; color:oklch(0.78 0.01 90);">The Commitment</a>
+          <a href="faq.html" style="font-size:14px; color:oklch(0.78 0.01 90);">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:{{ accentGold }}; margin:0 0 14px;">Community</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="events.html" style="font-size:14px; color:oklch(0.78 0.01 90);">Events</a>
+          <a href="https://theforgeofmen.substack.com/" target="_blank" style="font-size:14px; color:oklch(0.78 0.01 90);">Blog</a>
+          <a href="library.html" style="font-size:14px; color:oklch(0.78 0.01 90);">Library</a>
+          <a href="store.html" style="font-size:14px; color:oklch(0.78 0.01 90);">Store</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:{{ accentGold }}; margin:0 0 14px;">Contact</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="https://theforgeofmen.org" style="font-size:14px; color:oklch(0.78 0.01 90);">theforgeofmen.org</a>
+          <a href="mailto:info@theforgeofmen.org" style="font-size:14px; color:oklch(0.78 0.01 90);">info@theforgeofmen.org</a>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center; font-size:12px; color:oklch(0.5 0.02 90); margin:48px 0 0; letter-spacing:0.05em;">© 2026 The Forge of Men. All rights reserved.</p>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accentGold&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C9A227&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#D4AF6A&quot;,&quot;#C9A227&quot;,&quot;#E8C878&quot;]}}">
+class Component extends DCLogic {
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1200, menuOpen: false };
+  componentDidMount() {
+    this._onR = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('resize', this._onR);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this._onR); }
+  renderVals() {
+    const isDesktop = this.state.w >= 900;
+    return {
+      accentGold: this.props.accentGold ?? '#C9A227',
+      isDesktop,
+      isMobile: !isDesktop,
+      menuOpen: !isDesktop && this.state.menuOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -18,7 +18,7 @@
 </style>
 </helmet>
 
-<div style="background:#0b0a08; color:oklch(0.96 0.01 90); font-family:'Inter',sans-serif; min-height:100vh; overflow-x:hidden;">
+<div style="background:linear-gradient(rgba(11,10,8,0.82), rgba(11,10,8,0.82)), url('embers-bg.jpg') center/cover fixed #0b0a08; color:oklch(0.96 0.01 90); font-family:'Inter',sans-serif; min-height:100vh;">
 
   <nav style="position:sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; background:rgba(11,10,8,0.85); backdrop-filter:blur(8px); border-bottom:1px solid rgba(212,175,106,0.15);">
     <a href="index.html" style="display:flex; align-items:center; gap:12px; color:oklch(0.96 0.01 90);">
@@ -26,20 +26,21 @@
       <span style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; font-size:16px; text-transform:uppercase;">The Forge of Men</span>
     </a>
     <div style="display:flex; align-items:center; gap:28px;">
-      <a href="index.html#events" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Events</a>
-      <a href="#blog" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Blog</a>
-      <a href="#reading" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Library</a>
+      <a href="events.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Events</a>
+      <a href="https://theforgeofmen.substack.com/" target="_blank" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Blog</a>
+      <a href="library.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Library</a>
       <a href="about.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">About Us</a>
-      <a href="faq.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">FAQ</a>
-      <a href="#store" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Store</a>
-      <a href="{{ ctaHref }}" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid {{ accentGold }}; padding:10px 20px; color:{{ accentGold }};">Join Us</a>
+      <a href="commitment.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:{{ accentGold }};">Our Pledge</a>
+        <a href="faq.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">FAQ</a>
+      <a href="store.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Store</a>
+      <a href="join.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid {{ accentGold }}; padding:10px 20px; color:{{ accentGold }};">Join Us</a>
     </div>
   </nav>
 
-  <section style="text-align:center; padding:90px 24px 70px;">
-    <p style="font-family:'Oswald',sans-serif; color:{{ accentGold }}; letter-spacing:0.3em; font-size:13px; text-transform:uppercase; margin:0 0 20px;">Our Pledge</p>
-    <h1 style="font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(32px, 4.5vw, 52px); text-transform:uppercase; letter-spacing:0.03em; margin:0 0 20px; line-height:1.1;">The Forge Commitment</h1>
-    <p style="max-width:620px; margin:0 auto; color:oklch(0.72 0.02 90); font-size:17px; line-height:1.7;">Not words on paper — a standard to live by. Before God and my brothers, I make this commitment.</p>
+  <section style="text-align:center; padding:130px 24px 150px; background:linear-gradient(rgba(11,10,8,0.45) 30%, rgba(11,10,8,0.95)), url('pledge-handshake.jpg') center 22%/cover;">
+    <p style="font-family:'Oswald',sans-serif; color:{{ accentGold }}; letter-spacing:0.3em; font-size:13px; text-transform:uppercase; margin:0 0 20px; text-shadow:0 2px 12px rgba(0,0,0,0.9);">Our Pledge</p>
+    <h1 style="font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(32px, 4.5vw, 52px); text-transform:uppercase; letter-spacing:0.03em; margin:0 0 20px; line-height:1.1; text-shadow:0 2px 20px rgba(0,0,0,0.85);">The Forge Commitment</h1>
+    <p style="max-width:620px; margin:0 auto; color:oklch(0.85 0.01 90); font-size:17px; line-height:1.7; text-shadow:0 2px 10px rgba(0,0,0,0.9);">Not words on paper — a standard to live by. Before God and my brothers, I make this commitment.</p>
   </section>
 
   <section style="padding:60px 24px 100px; max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:56px;">
@@ -103,7 +104,7 @@
   <section style="padding:100px 24px; background:linear-gradient(rgba(11,10,8,0.88), rgba(11,10,8,0.88)), url('smelting.jpg') center/cover; background-attachment:fixed; text-align:center;">
     <h2 style="font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.03em; font-size:clamp(26px, 3.6vw, 40px); margin:0 0 24px;">Ready to Make It?</h2>
     <p style="color:oklch(0.72 0.02 90); font-size:16px; margin:0 0 36px;">This commitment is for men done with half-measures. Men over 21, ready to show up.</p>
-    <a href="{{ ctaHref }}" style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-size:14px; background:{{ accentGold }}; color:#12100c; padding:16px 38px; display:inline-block;">Join the Brotherhood</a>
+    <a href="join.html" style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-size:14px; background:{{ accentGold }}; color:#12100c; padding:16px 38px; display:inline-block;">Join the Brotherhood</a>
   </section>
 
   <footer style="padding:64px 24px 40px; border-top:1px solid rgba(212,175,106,0.15);">
@@ -127,10 +128,10 @@
       <div>
         <p style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:{{ accentGold }}; margin:0 0 14px;">Community</p>
         <div style="display:flex; flex-direction:column; gap:10px;">
-          <a href="index.html#events" style="font-size:14px; color:oklch(0.78 0.01 90);">Events</a>
-          <a href="#blog" style="font-size:14px; color:oklch(0.78 0.01 90);">Blog</a>
-          <a href="#reading" style="font-size:14px; color:oklch(0.78 0.01 90);">Library</a>
-          <a href="#store" style="font-size:14px; color:oklch(0.78 0.01 90);">Store</a>
+          <a href="events.html" style="font-size:14px; color:oklch(0.78 0.01 90);">Events</a>
+          <a href="https://theforgeofmen.substack.com/" target="_blank" style="font-size:14px; color:oklch(0.78 0.01 90);">Blog</a>
+          <a href="library.html" style="font-size:14px; color:oklch(0.78 0.01 90);">Library</a>
+          <a href="store.html" style="font-size:14px; color:oklch(0.78 0.01 90);">Store</a>
         </div>
       </div>
       <div>

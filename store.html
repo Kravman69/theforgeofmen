@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  a { color: {{ accentGold }}; text-decoration: none; }
+  a:hover { color: #fff; }
+</style>
+</helmet>
+
+<div style="background:linear-gradient(rgba(11,10,8,0.82), rgba(11,10,8,0.82)), url('embers-bg.jpg') center/cover fixed #0b0a08; color:oklch(0.96 0.01 90); font-family:'Inter',sans-serif; min-height:100vh; display:flex; flex-direction:column;">
+
+  <nav style="position:sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; background:rgba(11,10,8,0.85); backdrop-filter:blur(8px); border-bottom:1px solid rgba(212,175,106,0.15);">
+    <a href="index.html" style="display:flex; align-items:center; gap:12px; color:oklch(0.96 0.01 90);">
+      <img src="forge-logo.jpg" alt="Forge of Men crest" style="height:38px; width:38px; object-fit:cover; object-position:top; border-radius:2px;" />
+      <span style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; font-size:16px; text-transform:uppercase;">The Forge of Men</span>
+    </a>
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex; align-items:center; gap:28px;">
+        <a href="events.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Events</a>
+        <a href="https://theforgeofmen.substack.com/" target="_blank" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Blog</a>
+        <a href="library.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Library</a>
+        <a href="about.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">About Us</a>
+        <a href="commitment.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Our Pledge</a>
+        <a href="faq.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">FAQ</a>
+        <a href="store.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:{{ accentGold }};">Store</a>
+        <a href="join.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid {{ accentGold }}; padding:10px 20px; color:{{ accentGold }};">Join Us</a>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggleMenu }}" aria-label="Menu" style="background:none; border:none; cursor:pointer; display:flex; flex-direction:column; gap:5px; padding:10px;">
+        <span style="display:block; width:24px; height:2px; background:{{ accentGold }};"></span>
+        <span style="display:block; width:24px; height:2px; background:{{ accentGold }};"></span>
+        <span style="display:block; width:24px; height:2px; background:{{ accentGold }};"></span>
+      </button>
+    </sc-if>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute; top:100%; left:0; right:0; background:rgba(11,10,8,0.97); border-bottom:1px solid rgba(212,175,106,0.25); display:flex; flex-direction:column; align-items:flex-start; padding:16px 28px 24px; gap:18px;">
+        <a href="events.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Events</a>
+        <a href="https://theforgeofmen.substack.com/" target="_blank" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Blog</a>
+        <a href="library.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Library</a>
+        <a href="about.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">About Us</a>
+        <a href="commitment.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Our Pledge</a>
+        <a href="faq.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">FAQ</a>
+        <a href="store.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:{{ accentGold }};">Store</a>
+        <a href="join.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.1em; text-transform:uppercase; color:{{ accentGold }};">Join Us</a>
+      </div>
+    </sc-if>
+  </nav>
+
+  <section id="stack" style="padding:100px 24px;">
+    <div style="max-width:1000px; margin:0 auto;">
+    <p style="font-family:'Oswald',sans-serif; color:{{ accentGold }}; letter-spacing:0.3em; font-size:13px; text-transform:uppercase; text-align:center; margin:0 0 16px;">Health Optimization</p>
+    <h2 style="font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; font-size:clamp(26px, 3.4vw, 36px); text-align:center; margin:0 0 12px;">The Forge Stack</h2>
+    <p style="text-align:center; color:oklch(0.72 0.02 90); font-size:16px; line-height:1.7; max-width:620px; margin:0 auto 64px;">Supplements we actually take and believe in — chosen for quality, third-party testing, and value.</p>
+    <div style="display:flex; flex-direction:column; gap:64px;">
+      <div>
+        <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; font-size:20px; color:{{ accentGold }}; margin:0 0 6px; text-align:center;">Testosterone Support</h3>
+        <p style="text-align:center; color:oklch(0.6 0.02 90); font-size:14px; margin:0 0 28px;">Natural support for testosterone, drive, and healthy aging</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;">
+        <div style="border:1px solid rgba(212,175,106,0.25); background:rgba(20,18,16,0.85); padding:28px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;">
+            <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.03em; margin:0;">Ashwagandha KSM-66</h3>
+            <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(212,175,106,0.4); color:{{ accentGold }}; padding:4px 10px; white-space:nowrap;">Herbal</span>
+          </div>
+          <p style="font-size:13px; color:{{ accentGold }}; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 14px;">Nutricost</p>
+          <p style="color:oklch(0.75 0.01 90); font-size:14px; line-height:1.7; margin:0 0 18px;">The most-studied ashwagandha extract — stress resilience, cortisol balance, and recovery.</p>
+          <a href="https://www.amazon.com/s?k=Nutricost+Ashwagandha+KSM-66&tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; background:{{ accentGold }}; color:#12100c; padding:9px 16px; display:inline-block;">Shop on Amazon</a>
+        </div>
+        <div style="border:1px solid rgba(212,175,106,0.25); background:rgba(20,18,16,0.85); padding:28px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;">
+            <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.03em; margin:0;">Tongkat Ali</h3>
+            <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(212,175,106,0.4); color:{{ accentGold }}; padding:4px 10px; white-space:nowrap;">Herbal</span>
+          </div>
+          <p style="font-size:13px; color:{{ accentGold }}; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 14px;">Nutricost</p>
+          <p style="color:oklch(0.75 0.01 90); font-size:14px; line-height:1.7; margin:0 0 18px;">Traditional herb for natural testosterone support, drive, and vitality.</p>
+          <a href="https://www.amazon.com/s?k=Nutricost+Tongkat+Ali&tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; background:{{ accentGold }}; color:#12100c; padding:9px 16px; display:inline-block;">Shop on Amazon</a>
+        </div>
+        <div style="border:1px solid rgba(212,175,106,0.25); background:rgba(20,18,16,0.85); padding:28px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;">
+            <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.03em; margin:0;">Boron</h3>
+            <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(212,175,106,0.4); color:{{ accentGold }}; padding:4px 10px; white-space:nowrap;">Mineral</span>
+          </div>
+          <p style="font-size:13px; color:{{ accentGold }}; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 14px;">Nutricost</p>
+          <p style="color:oklch(0.75 0.01 90); font-size:14px; line-height:1.7; margin:0 0 18px;">Trace mineral supporting free testosterone, bone strength, and joint health.</p>
+          <a href="https://www.amazon.com/s?k=Nutricost+Boron&tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; background:{{ accentGold }}; color:#12100c; padding:9px 16px; display:inline-block;">Shop on Amazon</a>
+        </div>
+        <div style="border:1px solid rgba(212,175,106,0.25); background:rgba(20,18,16,0.85); padding:28px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;">
+            <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.03em; margin:0;">Topical DHEA</h3>
+            <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(212,175,106,0.4); color:{{ accentGold }}; padding:4px 10px; white-space:nowrap;">Hormone Precursor</span>
+          </div>
+          
+          <p style="color:oklch(0.75 0.01 90); font-size:14px; line-height:1.7; margin:0 0 18px;">Applied topically — supports healthy hormone levels as men age.</p>
+          <a href="https://www.amazon.com/s?k=topical+DHEA+cream+for+men&tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; background:{{ accentGold }}; color:#12100c; padding:9px 16px; display:inline-block;">Shop on Amazon</a>
+        </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; font-size:20px; color:{{ accentGold }}; margin:0 0 6px; text-align:center;">Insulin, Gut &amp; Blood Sugar Support</h3>
+        <p style="text-align:center; color:oklch(0.6 0.02 90); font-size:14px; margin:0 0 28px;">Metabolic balance from the inside out</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;">
+        <div style="border:1px solid rgba(212,175,106,0.25); background:rgba(20,18,16,0.85); padding:28px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;">
+            <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.03em; margin:0;">Berberine HCl + Ceylon Cinnamon</h3>
+            <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(212,175,106,0.4); color:{{ accentGold }}; padding:4px 10px; white-space:nowrap;">Herbal</span>
+          </div>
+          <p style="font-size:13px; color:{{ accentGold }}; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 14px;">Nutricost</p>
+          <p style="color:oklch(0.75 0.01 90); font-size:14px; line-height:1.7; margin:0 0 18px;">Metabolic support — helps maintain healthy blood sugar and insulin sensitivity.</p>
+          <a href="https://www.amazon.com/s?k=Nutricost+Berberine+HCl+Ceylon+Cinnamon&tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; background:{{ accentGold }}; color:#12100c; padding:9px 16px; display:inline-block;">Shop on Amazon</a>
+        </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; font-size:20px; color:{{ accentGold }}; margin:0 0 6px; text-align:center;">Mitochondrial Health</h3>
+        <p style="text-align:center; color:oklch(0.6 0.02 90); font-size:14px; margin:0 0 28px;">Cellular energy and heart support</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;">
+        <div style="border:1px solid rgba(212,175,106,0.25); background:rgba(20,18,16,0.85); padding:28px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;">
+            <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.03em; margin:0;">Ultra CoQ10</h3>
+            <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(212,175,106,0.4); color:{{ accentGold }}; padding:4px 10px; white-space:nowrap;">Coenzyme</span>
+          </div>
+          <p style="font-size:13px; color:{{ accentGold }}; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 14px;">Nutricost</p>
+          <p style="color:oklch(0.75 0.01 90); font-size:14px; line-height:1.7; margin:0 0 18px;">Supports heart health and cellular energy — especially important as men age.</p>
+          <a href="https://www.amazon.com/s?k=Nutricost+Ultra+CoQ10&tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; background:{{ accentGold }}; color:#12100c; padding:9px 16px; display:inline-block;">Shop on Amazon</a>
+        </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; font-size:20px; color:{{ accentGold }}; margin:0 0 6px; text-align:center;">Foundation & Recovery</h3>
+        <p style="text-align:center; color:oklch(0.6 0.02 90); font-size:14px; margin:0 0 28px;">The daily minerals every man should have covered</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;">
+        <div style="border:1px solid rgba(212,175,106,0.25); background:rgba(20,18,16,0.85); padding:28px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;">
+            <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.03em; margin:0;">Zinc + Copper</h3>
+            <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(212,175,106,0.4); color:{{ accentGold }}; padding:4px 10px; white-space:nowrap;">Mineral</span>
+          </div>
+          <p style="font-size:13px; color:{{ accentGold }}; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 14px;">Nutricost</p>
+          <p style="color:oklch(0.75 0.01 90); font-size:14px; line-height:1.7; margin:0 0 18px;">Foundational minerals for immune function and testosterone support — copper included to stay balanced with daily zinc use.</p>
+          <a href="https://www.amazon.com/s?k=Nutricost+Zinc+Copper&tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; background:{{ accentGold }}; color:#12100c; padding:9px 16px; display:inline-block;">Shop on Amazon</a>
+        </div>
+        <div style="border:1px solid rgba(212,175,106,0.25); background:rgba(20,18,16,0.85); padding:28px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;">
+            <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.03em; margin:0;">Magnesium Glycinate</h3>
+            <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(212,175,106,0.4); color:{{ accentGold }}; padding:4px 10px; white-space:nowrap;">Mineral</span>
+          </div>
+          <p style="font-size:13px; color:{{ accentGold }}; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 14px;">Nutricost</p>
+          <p style="color:oklch(0.75 0.01 90); font-size:14px; line-height:1.7; margin:0 0 18px;">The highly absorbable form — better sleep, muscle recovery, and calm under stress.</p>
+          <a href="https://www.amazon.com/s?k=Nutricost+Magnesium+Glycinate&tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; background:{{ accentGold }}; color:#12100c; padding:9px 16px; display:inline-block;">Shop on Amazon</a>
+        </div>
+        <div style="border:1px solid rgba(212,175,106,0.25); background:rgba(20,18,16,0.85); padding:28px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;">
+            <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.03em; margin:0;">Re-Lyte Hydration</h3>
+            <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(212,175,106,0.4); color:{{ accentGold }}; padding:4px 10px; white-space:nowrap;">Mineral · Electrolytes</span>
+          </div>
+          <p style="font-size:13px; color:{{ accentGold }}; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 14px;">Redmond</p>
+          <p style="color:oklch(0.75 0.01 90); font-size:14px; line-height:1.7; margin:0 0 18px;">Clean electrolytes from real salt — no sugar, no junk. Hydration that actually works.</p>
+          <a href="https://www.amazon.com/s?k=Redmond+Re-Lyte+Hydration&tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; background:{{ accentGold }}; color:#12100c; padding:9px 16px; display:inline-block;">Shop on Amazon</a>
+        </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; font-size:20px; color:{{ accentGold }}; margin:0 0 6px; text-align:center;">Training & Performance</h3>
+        <p style="text-align:center; color:oklch(0.6 0.02 90); font-size:14px; margin:0 0 28px;">Proven fuel for the physical pillar</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;">
+        <div style="border:1px solid rgba(212,175,106,0.25); background:rgba(20,18,16,0.85); padding:28px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;">
+            <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.03em; margin:0;">Creatine Monohydrate</h3>
+            <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(212,175,106,0.4); color:{{ accentGold }}; padding:4px 10px; white-space:nowrap;">Amino Compound</span>
+          </div>
+          <p style="font-size:13px; color:{{ accentGold }}; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 14px;">Nutricost</p>
+          <p style="color:oklch(0.75 0.01 90); font-size:14px; line-height:1.7; margin:0 0 18px;">The most proven supplement in sports science — strength, muscle, and growing evidence for brain health.</p>
+          <a href="https://www.amazon.com/s?k=Nutricost+Creatine+Monohydrate&tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; background:{{ accentGold }}; color:#12100c; padding:9px 16px; display:inline-block;">Shop on Amazon</a>
+        </div>
+        <div style="border:1px solid rgba(212,175,106,0.25); background:rgba(20,18,16,0.85); padding:28px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;">
+            <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.03em; margin:0;">Pre-Workout</h3>
+            <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(212,175,106,0.4); color:{{ accentGold }}; padding:4px 10px; white-space:nowrap;">Blend</span>
+          </div>
+          <p style="font-size:13px; color:{{ accentGold }}; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 14px;">Nutricost</p>
+          <p style="color:oklch(0.75 0.01 90); font-size:14px; line-height:1.7; margin:0 0 18px;">Clean energy and focus for training — dosed ingredients without the gimmicks.</p>
+          <a href="https://www.amazon.com/s?k=Nutricost+Pre-Workout&tag=theforgeofmen-20" target="_blank" rel="nofollow sponsored" style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; background:{{ accentGold }}; color:#12100c; padding:9px 16px; display:inline-block;">Shop on Amazon</a>
+        </div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center; font-size:16px; color:oklch(0.8 0.01 90); margin:64px 0 0;">Looking for a little more? <a href="https://www.stackedbiologics.com" target="_blank" style="color:{{ accentGold }}; text-decoration:underline;">For advanced research click here.</a></p>
+    <p style="text-align:center; font-size:12px; color:oklch(0.55 0.02 90); margin:48px 0 0; line-height:1.7;">As an Amazon Associate, The Forge of Men earns from qualifying purchases. These statements have not been evaluated by the FDA. Consult your physician before starting any supplement.</p>
+    </div>
+  </section>
+
+  <section style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:70px 24px 90px; min-height:100vh; background:linear-gradient(rgba(11,10,8,0.45), rgba(11,10,8,0.45)), url('under-construction.jpg') center/contain no-repeat #0b0a08;">
+    <div>
+    <p style="font-family:'Oswald',sans-serif; color:{{ accentGold }}; letter-spacing:0.3em; font-size:13px; text-transform:uppercase; margin:0 0 20px; text-shadow:0 2px 12px rgba(0,0,0,0.9);">The Forge Store</p>
+    <h1 style="font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(36px, 5.5vw, 64px); text-transform:uppercase; letter-spacing:0.03em; margin:0 0 20px; line-height:1.1; text-shadow:0 2px 20px rgba(0,0,0,0.8);">Still on the Anvil</h1>
+    <p style="max-width:520px; margin:0 auto 40px; color:oklch(0.85 0.01 90); font-size:17px; line-height:1.7;">Branded Forge gear is coming — hats, shirts, and more are still being hammered out. Check back soon.</p>
+    <a href="join.html" style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-size:14px; background:{{ accentGold }}; color:#12100c; padding:16px 38px; display:inline-block;">Join the Brotherhood</a>
+    </div>
+  </section>
+
+  <footer style="padding:64px 24px 40px; border-top:1px solid rgba(212,175,106,0.15);">
+    <div style="max-width:1000px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:40px;">
+      <div>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+          <img src="forge-logo.jpg" alt="" style="height:30px; width:30px; object-fit:cover; object-position:top; border-radius:2px;" />
+          <span style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; font-size:14px; text-transform:uppercase;">The Forge of Men</span>
+        </div>
+        <p style="font-size:13px; color:oklch(0.6 0.02 90); line-height:1.7; margin:0; font-style:italic;">Where men are forged in faith, fortitude, and strength.</p>
+      </div>
+      <div>
+        <p style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:{{ accentGold }}; margin:0 0 14px;">Quick Links</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="index.html" style="font-size:14px; color:oklch(0.78 0.01 90);">Home</a>
+          <a href="about.html" style="font-size:14px; color:oklch(0.78 0.01 90);">About Us</a>
+          <a href="commitment.html" style="font-size:14px; color:oklch(0.78 0.01 90);">The Commitment</a>
+          <a href="faq.html" style="font-size:14px; color:oklch(0.78 0.01 90);">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:{{ accentGold }}; margin:0 0 14px;">Community</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="events.html" style="font-size:14px; color:oklch(0.78 0.01 90);">Events</a>
+          <a href="https://theforgeofmen.substack.com/" target="_blank" style="font-size:14px; color:oklch(0.78 0.01 90);">Blog</a>
+          <a href="library.html" style="font-size:14px; color:oklch(0.78 0.01 90);">Library</a>
+          <a href="store.html" style="font-size:14px; color:oklch(0.78 0.01 90);">Store</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:{{ accentGold }}; margin:0 0 14px;">Contact</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="https://theforgeofmen.org" style="font-size:14px; color:oklch(0.78 0.01 90);">theforgeofmen.org</a>
+          <a href="mailto:info@theforgeofmen.org" style="font-size:14px; color:oklch(0.78 0.01 90);">info@theforgeofmen.org</a>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center; font-size:12px; color:oklch(0.5 0.02 90); margin:48px 0 0; letter-spacing:0.05em;">© 2026 The Forge of Men. All rights reserved.</p>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accentGold&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C9A227&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#D4AF6A&quot;,&quot;#C9A227&quot;,&quot;#E8C878&quot;]}}">
+class Component extends DCLogic {
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1200, menuOpen: false };
+  componentDidMount() {
+    this._onR = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('resize', this._onR);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this._onR); }
+  renderVals() {
+    const isDesktop = this.state.w >= 900;
+    return {
+      accentGold: this.props.accentGold ?? '#C9A227',
+      isDesktop,
+      isMobile: !isDesktop,
+      menuOpen: !isDesktop && this.state.menuOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+    };
+  }
+}
+</script>
+</body>
+</html>
