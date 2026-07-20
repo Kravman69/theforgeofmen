@@ -10,6 +10,17 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a5de1112cd0841d48182172/1jtvbeb3s';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
 <style>
   * { box-sizing: border-box; }
   body { margin: 0; }
@@ -32,6 +43,7 @@
         <a href="events.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Events</a>
         <a href="https://theforgeofmen.substack.com/" target="_blank" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Blog</a>
         <a href="library.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Library</a>
+        <a href="resources.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Resources</a>
         <a href="about.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">About Us</a>
         <a href="commitment.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Our Pledge</a>
         <a href="faq.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">FAQ</a>
@@ -51,6 +63,7 @@
         <a href="events.html" onClick="{{ closeMenu }}" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Events</a>
         <a href="https://theforgeofmen.substack.com/" target="_blank" onClick="{{ closeMenu }}" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Blog</a>
         <a href="library.html" onClick="{{ closeMenu }}" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Library</a>
+        <a href="resources.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Resources</a>
         <a href="about.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">About Us</a>
         <a href="commitment.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">Our Pledge</a>
         <a href="faq.html" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.9 0.01 90);">FAQ</a>
@@ -60,23 +73,23 @@
     </sc-if>
   </nav>
 
-  <section style="position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; padding:64px 24px 96px; overflow:hidden;">
+  <section style="position:relative; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; text-align:center; padding:56px 24px 64px; overflow:hidden; background:linear-gradient(rgba(11,10,8,0.75), rgba(11,10,8,0.75)), url('embers-bg.jpg') center/cover;">
+    <div style="position:relative; z-index:1;">
+      <h1 style="font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(38px, 5.5vw, 64px); text-transform:uppercase; letter-spacing:0.06em; margin:0 0 10px; line-height:1.1; text-shadow:0 2px 24px rgba(0,0,0,0.9);">The Forge of Men</h1>
+      <p style="font-family:'Oswald',sans-serif; font-weight:500; font-size:clamp(16px, 2vw, 22px); text-transform:uppercase; letter-spacing:0.12em; margin:0; color:oklch(0.9 0.01 90); text-shadow:0 2px 16px rgba(0,0,0,0.9);">Where Men Are Forged in Faith, Fortitude, and Strength</p>
+    </div>
+    <img src="hero-crest.jpg" alt="Forge of Men crest" style="width:min(480px, 78vw); height:auto; display:block; position:relative; z-index:1; margin:-80px auto -72px; -webkit-mask-image:radial-gradient(ellipse 62% 58% at 50% 50%, black 52%, transparent 82%); mask-image:radial-gradient(ellipse 62% 58% at 50% 50%, black 52%, transparent 82%);" />
+    <div>
     <sc-if value="{{ showEmberGlow }}" hint-placeholder-val="{{ true }}">
       <div style="position:absolute; bottom:-10%; left:50%; transform:translateX(-50%); width:900px; height:500px; background:radial-gradient(ellipse at center, oklch(0.62 0.17 45 / 0.35), transparent 70%); filter:blur(20px); animation:glowPulse 6s ease-in-out infinite; pointer-events:none;"></div>
     </sc-if>
 
-    <div style="width:min(340px, 60vw); aspect-ratio:0.83; overflow:hidden; position:relative; z-index:1; border-radius:4px;">
-      <img src="forge-logo.jpg" alt="Forge of Men crest" style="width:100%; height:auto; display:block; object-fit:cover; object-position:top;" />
-    </div>
-
-    <h1 style="font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(32px, 5vw, 56px); text-transform:uppercase; letter-spacing:0.03em; margin:36px 0 4px; line-height:1.1; max-width:900px; position:relative; z-index:1;">
-      Where Men Are Forged in<br/>Faith, Fortitude, and Strength
-    </h1>
-    <p style="font-family:'Oswald',sans-serif; color:{{ accentGold }}; letter-spacing:0.25em; font-size:14px; text-transform:uppercase; margin:16px 0 40px; position:relative; z-index:1;">Forged in Christ</p>
+    <p style="font-family:'Oswald',sans-serif; color:{{ accentGold }}; letter-spacing:0.25em; font-size:clamp(15px, 1.8vw, 20px); text-transform:uppercase; margin:0 0 40px; position:relative; z-index:1; text-shadow:0 2px 16px rgba(0,0,0,0.9);">Forged in Christ</p>
 
     <div style="display:flex; gap:16px; flex-wrap:wrap; justify-content:center; position:relative; z-index:1;">
       <a href="join.html" style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-size:14px; background:{{ accentGold }}; color:#12100c; padding:16px 34px;">Join the Brotherhood</a>
       <a href="#mission" style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-size:14px; border:1px solid rgba(255,255,255,0.25); color:oklch(0.96 0.01 90); padding:16px 34px;">Our Mission</a>
+    </div>
     </div>
   </section>
 
@@ -160,7 +173,7 @@
     </div>
   </section>
 
-  <section style="padding:110px 24px; background:#141210; text-align:center;">
+  <section style="padding:110px 24px; background:linear-gradient(rgba(11,10,8,0.85), rgba(11,10,8,0.85)), url('embers-bg.jpg') center/cover; background-attachment:fixed; text-align:center;">
     <p style="font-family:'Oswald',sans-serif; color:{{ accentGold }}; letter-spacing:0.3em; font-size:13px; text-transform:uppercase; margin:0 0 20px;">Our Pledge</p>
     <h2 style="font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.03em; font-size:clamp(26px, 3.4vw, 36px); margin:0 0 24px;">The Forge Commitment</h2>
     <p style="max-width:600px; margin:0 auto 48px; color:oklch(0.72 0.02 90); font-size:16px; line-height:1.7;">Every Forge man makes six commitments — to his God, his mind, his body, and his brothers.</p>
@@ -181,6 +194,12 @@
     <h2 style="font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.03em; font-size:clamp(28px, 4vw, 44px); margin:0 0 24px;">Ready to Be Forged?</h2>
     <p style="color:oklch(0.72 0.02 90); font-size:17px; margin:0 0 40px;">Men over 21. No denomination required. Just show up.</p>
     <a href="join.html" style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-size:15px; background:{{ accentGold }}; color:#12100c; padding:18px 44px; display:inline-block;">Join the Brotherhood</a>
+  </section>
+
+  <section style="padding:56px 24px; background:rgba(20,18,16,0.9); border-top:1px solid oklch(0.72 0.19 25 / 0.35); text-align:center;">
+    <p style="font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(24px, 3vw, 34px); letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.72 0.19 25); margin:0 0 18px;">Every warrior needs a hand sometimes</p>
+    <p style="color:oklch(0.92 0.01 90); font-size:clamp(17px, 2vw, 21px); line-height:1.9; margin:0 0 20px;"><strong>Suicide & Crisis Lifeline:</strong> call or text <a href="tel:988" style="color:#fff; text-decoration:underline;">988</a> &nbsp;·&nbsp; <strong>Veterans Crisis Line:</strong> dial <a href="tel:988" style="color:#fff; text-decoration:underline;">988, press 1</a> &nbsp;·&nbsp; <strong>Crisis Text Line:</strong> text <a href="sms:741741&body=HOME" style="color:#fff; text-decoration:underline;">HOME to 741741</a></p>
+    <a href="resources.html" style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:{{ accentGold }}; text-decoration:underline;">More outside resources →</a>
   </section>
 
   <footer style="padding:64px 24px 40px; border-top:1px solid rgba(212,175,106,0.15);">
@@ -207,6 +226,7 @@
           <a href="events.html" style="font-size:14px; color:oklch(0.78 0.01 90);">Events</a>
           <a href="https://theforgeofmen.substack.com/" target="_blank" style="font-size:14px; color:oklch(0.78 0.01 90);">Blog</a>
           <a href="library.html" style="font-size:14px; color:oklch(0.78 0.01 90);">Library</a>
+          <a href="resources.html" style="font-size:14px; color:oklch(0.78 0.01 90);">Outside Resources</a>
           <a href="store.html" style="font-size:14px; color:oklch(0.78 0.01 90);">Store</a>
         </div>
       </div>
@@ -214,7 +234,7 @@
         <p style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:{{ accentGold }}; margin:0 0 14px;">Contact</p>
         <div style="display:flex; flex-direction:column; gap:10px;">
           <a href="{{ ctaHref }}" style="font-size:14px; color:oklch(0.78 0.01 90);">theforgeofmen.org</a>
-          <a href="/cdn-cgi/l/email-protection#f990979f96b98d919c9f968b9e9c969f949c97d7968b9e" style="font-size:14px; color:oklch(0.78 0.01 90);"><span class="__cf_email__" data-cfemail="8ce5e2eae3ccf8e4e9eae3feebe9e3eae1e9e2a2e3feeb">[email&#160;protected]</span></a>
+          <a href="mailto:info@theforgeofmen.org" style="font-size:14px; color:oklch(0.78 0.01 90);">info@theforgeofmen.org</a>
         </div>
       </div>
     </div>
@@ -224,7 +244,7 @@
 </div>
 
 </x-dc>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script data-props="{&quot;accentGold&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C9A227&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#D4AF6A&quot;,&quot;#C9A227&quot;,&quot;#E8C878&quot;]},&quot;ctaHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://theforgeofmen.org&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showEmberGlow&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;accentGold&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C9A227&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#D4AF6A&quot;,&quot;#C9A227&quot;,&quot;#E8C878&quot;]},&quot;ctaHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://theforgeofmen.org&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showEmberGlow&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
   state = { w: typeof window !== 'undefined' ? window.innerWidth : 1200, menuOpen: false };
   componentDidMount() {
