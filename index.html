@@ -21,6 +21,18 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
+
+<script type="text/javascript">
+(function(){
+  var CLARITY_PROJECT_ID = "xvacy5zvql";
+  if (!CLARITY_PROJECT_ID || CLARITY_PROJECT_ID.indexOf("REPLACE") === 0) return;
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", CLARITY_PROJECT_ID);
+})();
+</script>
 <style>
   * { box-sizing: border-box; }
   body { margin: 0; }
@@ -234,7 +246,7 @@ s0.parentNode.insertBefore(s1,s0);
         <p style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:{{ accentGold }}; margin:0 0 14px;">Contact</p>
         <div style="display:flex; flex-direction:column; gap:10px;">
           <a href="{{ ctaHref }}" style="font-size:14px; color:oklch(0.78 0.01 90);">theforgeofmen.org</a>
-          <a href="/cdn-cgi/l/email-protection#036a6d656c43776b66656c7164666c656e666d2d6c7164" style="font-size:14px; color:oklch(0.78 0.01 90);"><span class="__cf_email__" data-cfemail="e1888f878ea1958984878e9386848e878c848fcf8e9386">[email&#160;protected]</span></a>
+          <a href="mailto:info@theforgeofmen.org" style="font-size:14px; color:oklch(0.78 0.01 90);">info@theforgeofmen.org</a>
         </div>
       </div>
     </div>
@@ -244,7 +256,7 @@ s0.parentNode.insertBefore(s1,s0);
 </div>
 
 </x-dc>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script data-props="{&quot;accentGold&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C9A227&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#D4AF6A&quot;,&quot;#C9A227&quot;,&quot;#E8C878&quot;]},&quot;ctaHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://theforgeofmen.org&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showEmberGlow&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;accentGold&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C9A227&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#D4AF6A&quot;,&quot;#C9A227&quot;,&quot;#E8C878&quot;]},&quot;ctaHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://theforgeofmen.org&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showEmberGlow&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
   state = { w: typeof window !== 'undefined' ? window.innerWidth : 1200, menuOpen: false };
   componentDidMount() {
